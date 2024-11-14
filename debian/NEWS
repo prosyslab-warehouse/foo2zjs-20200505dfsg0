@@ -1,0 +1,74 @@
+foo2zjs (20200505dfsg0-2ubuntu1) impish; urgency=medium
+
+  Update: Patch for links in getweb script replaced by one to switch
+  to https://www.quirinux.org/. The old patch changing the links to
+  https://foo2zjs.linkevich.net is still included in the source
+  package so that after editing debian/patches/series one can rebuild
+  with these links.
+
+foo2zjs (20200505dfsg0-1ubuntu1) impish; urgency=medium
+
+  The upstream home of foo2zjs, http://foo2zjs.rkkda.com/ has ceased
+  to work. Most probably the original author, Rick Richardson has
+  given up on this project. So their will also no furtyher upstream
+  versions if no one will overtake the project. Rick's last change
+  happened on June 10, 2020, only one change after the version we use.
+
+  The Debian/Ubuntu package up to now was based on his second last
+  change, on May 5, 2020. This was the last change actually affecting
+  Linux, the last one was only for Mac OS. I have found this last
+  tarball here, on a site of another person who wants to conserve this
+  driver package:
+
+    https://foo2zjs.linkevich.net/
+
+  as
+
+    https://foo2zjs.linkevich.net/foo2zjs/foo2zjs.orig.tar.gz
+
+  and a modified one (only file getweb.in, to grab the firmware/ICM
+  files from the new site):
+
+    https://foo2zjs.linkevich.net/foo2zjs/foo2zjs.tar.gz
+
+  I did not switch to this new "upstream" tarball as with it, the
+  package did not build any more. but I have merged the updated links
+  of the tarball's getweb.in file into ours, so that the getweb
+  utility continues to work, taking the files from the new site.
+
+  Someone has created a GitHub for this project here
+
+    https://github.com/koenkooi/foo2zjs
+
+  It is a snapshot of the stone-old edition from October 24, 2015 but
+  it also contains all the firmware/ICM files. It contains a patch
+
+    https://github.com/koenkooi/foo2zjs/pull/3/files
+
+  to change getweb.in to grab the firmware/ICM files from
+
+    https://www.quirinux.org/
+
+  These printers are old, but if someone has still a working one and
+  toner for it can easily save it from the bin with this package and
+  the mentioned resources.
+
+  But thanks, Rick Richardson, for this great work anyway, you have
+  made these long years before the advent of driverless IPP printing
+  much easier for us!
+
+ -- Till Kamppeter <till.kamppeter@gmail.com>  Wed, 18 Aug 2021 23:49:27 +0200
+
+foo2zjs (20090908dfsg-2) unstable; urgency=low
+
+  Starting with this version all HP firmwares are looked for into
+  /lib/firmware/hp/ instead of upstream /usr/share/foo2zjs/firmware/
+  (thus solving bug #517957).
+
+  The upstream /usr/bin/getweb and /lib/udev/hplj1000 scripts have
+  been patched to use this new location.  foo2zjs postinst should
+  automatically handle the migration of every firmware present in
+  the old location to the new one.
+
+ -- Luca Capello <luca@pca.it>  Mon, 22 Mar 2010 13:15:37 +0100
+
